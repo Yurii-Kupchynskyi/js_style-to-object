@@ -6,7 +6,7 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-  const resultObject = {};
+  const styleObject = {};
 
   const styles = sourceString
     .trim()
@@ -19,12 +19,12 @@ function convertToObject(sourceString) {
     const key = el.slice(0, colonIndex).trim();
     const value = el.slice(colonIndex + 1).trim();
 
-    if (key && value !== undefined) {
-      resultObject[key] = value;
+    if (key && value) {
+      styleObject[key] = value;
     }
   });
 
-  return resultObject;
+  return styleObject;
 }
 
 module.exports = convertToObject;
